@@ -1,0 +1,50 @@
+@import '../mixins';
+@import '../variables';
+
+.header {
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  @include container;
+
+  .logo {
+    width: 100px;
+    margin-right: 40px;
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    &__main {
+      margin-right: auto;
+    }
+
+    &__secondary {
+    }
+
+    &-item {
+      a {
+        color: $textColor;
+        font-weight: 600;
+        padding: 10px;
+        font-size: 16px;
+
+        &:hover {
+          color: $darkViolet;
+        }
+      }
+    }
+
+    .signup {
+      margin-left: 24px;
+
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+}
