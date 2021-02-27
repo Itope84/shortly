@@ -1,0 +1,129 @@
+@import '../variables';
+@import '../mixins';
+
+.page-body {
+  &--wrapper {
+    background-color: #eff1f7;
+    margin-top: 80px;
+  }
+  @include container();
+  padding: 50px 0px;
+
+  .title {
+    @include headerText;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features {
+    $gap: 48px;
+    $totalGap: 48 * 2px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: $gap;
+    margin: 120px 0;
+
+    .feature {
+      // variables
+      $iconSize: 80px;
+
+      background-color: #fff;
+      border-radius: 6px;
+      position: relative;
+      padding: #{($iconSize/2) + 36px} 36px 36px;
+
+      text-align: center;
+      width: 100%;
+      flex-basis: 100%;
+
+      @include desktop() {
+        text-align: left;
+        width: calc((100% - #{$totalGap}) / 3);
+        flex-basis: calc((100% - #{$totalGap}) / 3);
+      }
+
+      @for $i from 0 to 4 {
+        $translateAmt: 36px * ($i - 1);
+        &:nth-child(#{$i}) {
+          // using translate3d instead of translate y for performance reasons
+          transform: translate3d(0, #{$translateAmt}, 0);
+
+          @include desktop() {
+            &:not(:last-child):after {
+              top: calc(50% - #{$translateAmt});
+            }
+          }
+        }
+      }
+
+      //   green connector between feature cards
+      &:not(:last-child):after {
+        $width: $gap;
+        $height: 12px;
+
+        content: '';
+        display: block;
+        position: absolute;
+        width: $width;
+        height: $height;
+        background-color: $cyan;
+        // subtract the value by which the connector is pushed up after being rotated
+        left: calc(50% - #{$width/2});
+        top: calc(100% + #{$height * 1.5});
+
+        @include mobile() {
+          transform: rotate3d(0, 0, 1, 90deg);
+        }
+
+        // can't use the default desktop query here as the ratio is too much for the tablet
+        @include desktop() {
+          left: 100%;
+        }
+      }
+
+      &-icon {
+        display: inline-block;
+        width: $iconSize;
+        height: $iconSize;
+        background-color: $darkViolet;
+        border-radius: 100%;
+
+        // center
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // position
+        position: absolute;
+        top: -40px;
+
+        @include mobile() {
+          left: calc(50% - #{$iconSize / 2});
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+
+      &-title {
+        @include headerText;
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+      }
+
+      &-body {
+        font-size: 16px;
+      }
+    }
+  }
+}

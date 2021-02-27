@@ -31,13 +31,15 @@ html {
 }
 
 // reset margin on all headers
-@for $i from 1 to 6 {
+@for $i from 1 to 7 {
   h#{$i} {
     margin: 0px;
   }
 }
 p {
   margin: 0px;
+  color: $grayViolet;
+  line-height: 1.8;
 }
 
 ul {

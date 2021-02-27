@@ -20,12 +20,20 @@
     margin-top: 40px;
     .illustration {
       width: 100%;
-      height: 500px;
+      height: 400px;
       z-index: -1;
       right: 0;
-      background-position: -10%;
+      background-position: 24px;
+      background-size: cover;
       background-image: url('/images/illustration-working.svg');
       background-repeat: no-repeat;
+
+      // edge case between large tablets and small desktops
+      @include media-breakpoint-between(720px, 1023px) {
+        background-size: contain;
+        background-position: center;
+        height: 500px;
+      }
 
       @include desktop() {
         height: 100%;
@@ -48,14 +56,11 @@
 
     @include mobile() {
       text-align: center;
-      //   display: flex;
-      //   flex-direction: column;
-      //   align-items: center;
     }
 
     .header {
       @include headerText;
-      font-size: 3.25rem;
+      font-size: 4rem;
       line-height: 1.2;
       margin-bottom: 8px;
     }
