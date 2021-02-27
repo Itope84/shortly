@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import HeaderNav from '../components/HeaderNav';
+import * as React from 'react';
 
-export default function Home() {
+let str;
+console.log(str);
+
+const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,3 +31,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
