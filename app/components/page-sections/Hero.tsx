@@ -1,6 +1,6 @@
 import * as React from 'react'
-import heroStyles from '../styles/components/Hero.module.scss'
-import LinkButton from './buttons/LinkButton'
+import heroStyles from '../../styles/components/Hero.module.scss'
+import LinkButton from '../buttons/LinkButton'
 
 const Hero: React.FC = () => {
   return (

@@ -11,6 +11,7 @@
 
   .title {
     @include headerText;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 24px;
   }

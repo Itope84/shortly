@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styles from '../styles/components/PageBody.module.scss'
-import FeatureCard from './FeatureCard'
-import { Feature } from './FeatureCard'
+import styles from '../../styles/components/PageBody.module.scss'
+import FeatureCard from '../FeatureCard'
+import { Feature } from '../FeatureCard'
 
 console.log(styles)
 

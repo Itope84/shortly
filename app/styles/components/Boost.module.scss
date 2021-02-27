@@ -1,0 +1,29 @@
+@import '../variables';
+@import '../mixins';
+
+.boost-section {
+  background-color: $darkViolet;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  padding: 64px 0;
+
+  background-image: url('/images/bg-boost-desktop.svg');
+
+  @include mobile() {
+    background-image: url('/images/bg-boost-mobile.svg');
+  }
+
+  .cta-text {
+    @include headerText;
+    font-size: 2.25rem;
+    color: #fff;
+    margin-bottom: 36px;
+  }
+
+  .content {
+    @include container;
+  }
+}
