@@ -1,0 +1,33 @@
+@mixin mobile() {
+  @media screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: 751px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($min, $max) {
+  @media screen and (min-width: #{$min}) and (max-width: #{$max}) {
+    @content;
+  }
+}
+
+@function css-function($function, $values...) {
+  @return $function + unquote('(') + $values + unquote(')');
+}
+
+@function css-min($values...) {
+  @return css-function(min, $values);
+}
+
+@function css-max($values...) {
+  @return css-function(max, $values);
+}
+
+@function css-clamp($values...) {
+  @return css-function(clamp, $values);
+}

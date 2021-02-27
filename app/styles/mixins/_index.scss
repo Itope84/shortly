@@ -1,13 +1,16 @@
+@import 'typography';
+@import './helpers';
+
 @mixin container() {
   margin-left: auto;
   margin-right: auto;
-  // leave a margin left and right of about 25px on each side at least
-  width: calc(100% - 50px);
+  // leave a margin left and right of about 40px on each side at least
+  width: calc(100% - 100px);
   max-width: 1200px;
 
   // Mobile
-  @media screen and (max-width: 760px) {
-    padding-left: 40px;
-    padding-right: 40px;
+  @include mobile() {
+    // 20px on each side on mobile
+    width: calc(100% - 50px);
   }
 }

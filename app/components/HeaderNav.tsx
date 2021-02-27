@@ -29,7 +29,9 @@ const HeaderNav: React.FC = () => {
             <a href="#">Login</a>
           </li>
           <li className={styles['signup']}>
-            <LinkButton href="#">Sign Up</LinkButton>
+            <LinkButton sm href="#">
+              Sign Up
+            </LinkButton>
           </li>
         </ul>
       </nav>
