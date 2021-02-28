@@ -1,7 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import styles from '../../styles/components/PageBody.module.scss'
 import FeatureCard from '../FeatureCard'
 import { Feature } from '../FeatureCard'
+import AppSection from './AppSection'
 
 console.log(styles)
 
@@ -30,6 +31,8 @@ const PageBody: React.FC = () => {
   return (
     <div className={styles['page-body--wrapper']}>
       <div className={styles['page-body']}>
+        <AppSection />
+
         <section className={styles.statistics}>
           <h2 className={styles.title}>Advanced Statistics</h2>
           <p className={styles.subtitle}>

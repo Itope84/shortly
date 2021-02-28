@@ -1,0 +1,44 @@
+@import '../mixins';
+
+.shorten-container {
+  width: 100%;
+  background-color: $darkViolet;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  background-position: center;
+  padding: 4rem 2rem;
+
+  background-image: url('/images/bg-shorten-desktop.svg');
+
+  @include mobile() {
+    background-position: left;
+    padding: 2.5rem;
+    background-image: url('/images/bg-shorten-mobile.svg');
+  }
+
+  form {
+    gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .input {
+    flex-basis: 75%;
+
+    @include mobile() {
+      flex-basis: 100%;
+    }
+  }
+
+  .button-wrapper {
+    @include mobile {
+      flex-basis: 100%;
+      width: 100%;
+      .button {
+        width: 100%;
+      }
+    }
+  }
+}

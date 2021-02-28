@@ -1,0 +1,52 @@
+@import '../mixins';
+.input-wrapper {
+  position: relative;
+
+  input {
+    display: block;
+    width: 100%;
+    min-width: 240px;
+    padding: 18px 32px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    color: $extraDarkViolet;
+
+    // using focus visible for keyboard-only focus state. This has limited browser support at the moment, and different browsers have different weird implementations. Hence the focus visible polyfill should be used to solve that
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $cyan;
+    }
+
+    &::placeholder {
+      color: $grayViolet;
+    }
+  }
+
+  &.has-error {
+    input {
+      box-shadow: 0 0 0 3px $red;
+
+      &::placeholder {
+        color: $red;
+        opacity: 0.6;
+      }
+    }
+
+    .error {
+      color: $red;
+      opacity: 0.8;
+      margin-top: 6px;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 1rem;
+
+      @include desktop() {
+        position: absolute;
+      }
+    }
+  }
+}

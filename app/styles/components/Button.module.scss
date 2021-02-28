@@ -6,6 +6,9 @@
   font-size: $bodyFontSize;
   font-weight: 600;
   display: inline-block;
+  border: none;
+  border-radius: 6px;
+  padding: 18px 42px;
 
   &:hover {
     background-color: lighten($color: $primaryButtons, $amount: 20);
@@ -13,7 +16,7 @@
 
   &--link {
     border-radius: 40px;
-    padding: 15px 40px;
+    padding: 16px 42px;
     &__sm {
       padding: 10px 20px;
     }
