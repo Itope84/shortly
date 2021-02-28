@@ -1,0 +1,74 @@
+@import '../mixins';
+
+.link-card {
+  $gap: 18px;
+
+  width: 100%;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  .url {
+    display: inline-block;
+    flex-basis: 55%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $extraDarkViolet;
+
+    @include mobile {
+      flex-basis: 100%;
+
+      &::after {
+        content: '';
+        border-top: 1px solid $gray;
+        position: absolute;
+        margin-top: 4px;
+        left: 0;
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .shortened-url {
+    color: $cyan;
+    display: inline-block;
+    text-align: right;
+    flex-basis: 25%;
+    flex-grow: 1;
+
+    @include mobile {
+      text-align: left;
+      flex-basis: 100%;
+    }
+
+    @include media-breakpoint-between(426px, 1023px) {
+      flex-basis: 75%;
+    }
+  }
+
+  .copy-button {
+    min-width: 100px;
+    flex-basis: calc(15% - #{$gap});
+
+    @include mobile {
+      width: 100%;
+    }
+    @include media-breakpoint-between(426px, 1023px) {
+      flex-basis: calc(25% - #{$gap});
+    }
+  }
+}

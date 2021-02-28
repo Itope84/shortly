@@ -1,2 +1,12 @@
+$pageBodyPaddingVertical: 50px;
+$shortenHeight: 200px;
+
+$translateAmt: -(($shortenHeight / 2) + $pageBodyPaddingVertical);
+
 .app-section {
+  transform: translate3d(0, #{$translateAmt}, 0);
+}
+
+.links {
+  margin-top: 36px;
 }
