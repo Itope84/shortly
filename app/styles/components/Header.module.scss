@@ -1,6 +1,9 @@
 @import '../mixins';
 @import '../variables';
 
+$triggerGap: 4px;
+$dashHeight: 3px;
+
 .header {
   padding: 10px 0px;
   margin-top: 20px;
@@ -8,10 +11,52 @@
   align-items: center;
   @include container;
 
+  & + main {
+    margin-top: 40px;
+  }
+
   .logo {
     width: 100px;
     margin-right: 40px;
   }
+
+  .mobile-trigger {
+    display: none;
+
+    @media screen and (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+      gap: $triggerGap;
+      padding: 6px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .dash {
+      height: 3px;
+      width: 24px;
+      display: inline-block;
+      background-color: $grayViolet;
+
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      transition-property: transform, opacity;
+      transition-duration: 0.25s;
+    }
+  }
+
+  // .nav-wrapper {
+  //   display: flex;
+  //   flex: 1;
+  //   align-items: center;
+
+  // }
 
   .nav {
     ul {
@@ -24,15 +69,13 @@
       margin-right: auto;
     }
 
-    // &__secondary {
-    // }
-
     &-item {
       a {
         color: $textColor;
-        font-weight: 600;
+        font-weight: 500;
         padding: 10px;
         font-size: 16px;
+        -webkit-tap-highlight-color: transparent;
 
         &:hover {
           color: $extraDarkViolet;
@@ -45,6 +88,100 @@
 
       a {
         font-size: 16px;
+      }
+
+      @media screen and (max-width: 720px) {
+        width: 100%;
+        margin-left: 0;
+        a {
+          display: block;
+          width: 100%;
+          text-align: center;
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  // Mobile layout, decided to start from small tablets as larger tablets can display the extended menu
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 0;
+    background-color: #fff;
+    // box-shadow: 0 1px 10px 10px $gray;
+    z-index: 100;
+
+    // Opening mechanism
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    overflow-y: hidden;
+
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-property: height;
+    transition-duration: 0.25s;
+
+    & + main {
+      margin-top: 70px;
+    }
+
+    &.is-open {
+      position: fixed;
+      height: 100%;
+
+      .mobile-trigger {
+        .dash {
+          &:nth-child(1) {
+            transform: translateY(#{$triggerGap + $dashHeight}) rotate3d(0, 0, 1, 45deg);
+          }
+          &:nth-child(2) {
+            transform: rotate3d(0, 0, 1, -45deg);
+          }
+
+          &:nth-child(3) {
+            opacity: 0;
+            display: none;
+          }
+        }
+      }
+    }
+
+    .logo {
+      margin: 6px 6px 24px;
+    }
+
+    &:not(.is-open) {
+      .nav {
+        display: none;
+      }
+    }
+
+    .nav {
+      width: 100%;
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      &-item {
+        width: 100%;
+        border-bottom: 1px solid lighten($gray, 10);
+
+        a {
+          display: inline-block;
+          padding: 24px 10px;
+          width: 100%;
+        }
+      }
+
+      &__secondary {
+        .nav-item {
+          text-align: center;
+          border-bottom: none;
+        }
       }
     }
   }

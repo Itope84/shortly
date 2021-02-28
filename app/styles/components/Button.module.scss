@@ -21,6 +21,7 @@
   }
 
   &--link {
+    -webkit-tap-highlight-color: transparent;
     border-radius: 40px;
     padding: 16px 42px;
     &__sm {
