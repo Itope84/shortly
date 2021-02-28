@@ -5,6 +5,10 @@
   &--wrapper {
     background-color: #eff1f7;
     margin-top: 80px;
+
+    @include mobile {
+      margin-top: 140px;
+    }
   }
   @include container();
   padding: 50px 0px;

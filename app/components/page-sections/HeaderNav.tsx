@@ -1,5 +1,5 @@
 import styles from '../../styles/components/Header.module.scss'
-import React, { useState } from 'react'
+import React, { KeyboardEvent, useState } from 'react'
 import LinkButton from '../buttons/LinkButton'
 
 console.log(styles)
@@ -7,8 +7,18 @@ console.log(styles)
 const HeaderNav: React.FC = () => {
   const [showMobileNav, setShowMobileNav] = useState(false)
 
+  // even though the mobile nav only shows on mobile, let's imagine the possibility someone is using an external keyboard with their device
+  const handleKeyDown = (e: KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+      setShowMobileNav(false)
+    }
+  }
+
   return (
-    <header className={[styles.header, showMobileNav ? styles['is-open'] : ''].join(' ')}>
+    <header
+      className={[styles.header, showMobileNav ? styles['is-open'] : ''].join(' ')}
+      onKeyDown={handleKeyDown}
+    >
       <img src="/images/logo.svg" alt="Shortly Logo" className={styles.logo} />
 
       <button

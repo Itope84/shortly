@@ -16,6 +16,16 @@
     font-size: 16px;
   }
 
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // This is done for keyboard accessibility. Although some browsers do not support this yet, that can be solved by using the focus-visible polyfill. However, this has enough support to suffice for the purposes of this demo
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px darken($cyan, 10);
+  }
+
   &:hover {
     background-color: lighten($color: $primaryButtons, $amount: 20);
   }
