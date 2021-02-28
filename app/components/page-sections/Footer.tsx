@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from '../../styles/components/Footer.module.scss'
-import Logo from '../../public/images/logo.svg'
-import FacebookIcon from '../../public/icons/icon-facebook.svg'
-import TwitterIcon from '../../public/icons/icon-twitter.svg'
-import PinterestIcon from '../../public/icons/icon-pinterest.svg'
-import InstagramIcon from '../../public/icons/icon-instagram.svg'
+import Logo from '../../assets/svgs/logo.svg'
+import FacebookIcon from '../../assets/svgs/icon-facebook.svg'
+import TwitterIcon from '../../assets/svgs/icon-twitter.svg'
+import PinterestIcon from '../../assets/svgs/icon-pinterest.svg'
+import InstagramIcon from '../../assets/svgs/icon-instagram.svg'
 
 const Footer: React.FC = () => {
   return (
