@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import heroStyles from '../../styles/components/Hero.module.scss'
 import LinkButton from '../buttons/LinkButton'
 

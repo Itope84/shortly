@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import buttonStyles from '../../styles/components/Button.module.scss'
 
 interface ButtonProps {

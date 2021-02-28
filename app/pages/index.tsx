@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import HeaderNav from '../components/page-sections/HeaderNav'
-import * as React from 'react'
+import React from 'react'
 import Hero from '../components/page-sections/Hero'
 import PageBody from '../components/page-sections/PageBody'
 import BoostSection from '../components/page-sections/BoostSection'

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styles from '../styles/components/PageBody.module.scss'
 
 export interface Feature {
