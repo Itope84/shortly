@@ -38,8 +38,8 @@ const PageBody: React.FC = () => {
           </p>
 
           <div className={styles.features}>
-            {features.map((feature) => (
-              <FeatureCard feature={feature}></FeatureCard>
+            {features.map((feature, index) => (
+              <FeatureCard key={`feature-${index}`} feature={feature}></FeatureCard>
             ))}
           </div>
         </section>

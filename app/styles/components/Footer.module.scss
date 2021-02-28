@@ -1,0 +1,98 @@
+@import '../variables';
+@import '../mixins';
+
+.footer {
+  &--wrapper {
+    padding: 5rem 0 2rem;
+    background-color: $extraDarkViolet;
+  }
+
+  @include container;
+
+  @include desktop() {
+    display: flex;
+  }
+
+  @include mobile {
+    text-align: center;
+  }
+
+  .logo-section {
+    @include desktop() {
+      width: 30%;
+      flex-basis: 30%;
+    }
+
+    margin-bottom: 48px;
+
+    .logo {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  .links-section {
+    @include desktop() {
+      display: flex;
+      width: 50%;
+      flex-basis: 50%;
+    }
+
+    margin-bottom: 48px;
+
+    .column {
+      @include desktop() {
+        width: 33.33%;
+        flex-basis: 33.33%;
+      }
+
+      margin-bottom: 48px;
+
+      h4 {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 24px;
+        font-weight: 700;
+      }
+
+      a {
+        color: $gray;
+        font-size: 16px;
+        margin-bottom: 12px;
+        display: block;
+
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+  }
+
+  .social {
+    @include desktop() {
+      width: 20%;
+      flex-basis: 20%;
+    }
+
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 12px;
+      display: inline-block;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+      &:hover {
+        svg {
+          path {
+            fill: $cyan;
+          }
+        }
+      }
+    }
+  }
+}
