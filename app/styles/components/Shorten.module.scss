@@ -19,7 +19,15 @@
   }
 
   form {
-    gap: 24px;
+    & > *:not(:nth-child(1)) {
+      @include desktop {
+        margin-left: 24px;
+      }
+
+      @include mobile {
+        margin-top: 24px;
+      }
+    }
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

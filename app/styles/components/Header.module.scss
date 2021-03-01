@@ -28,7 +28,12 @@ $dashHeight: 3px;
       flex-direction: column;
       position: absolute;
       right: 20px;
-      gap: $triggerGap;
+
+      // replace gap
+      & > *:not(:nth-child(1)) {
+        margin-top: #{$triggerGap};
+      }
+
       padding: 6px;
       background-color: transparent;
       border: none;
