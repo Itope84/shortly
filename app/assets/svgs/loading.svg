@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 28px; height: 28px">
+  <circle fill="none" stroke="#ffffff" stroke-width="3" r="12" stroke-dasharray="56.548667764616276 20.84955592153876"
+    style="cx: 50%; cy: 50%;">
+    <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+      values="0 14 14;360 14 14" keyTimes="0;1"></animateTransform>
+  </circle>
+</svg>

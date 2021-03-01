@@ -1,6 +1,8 @@
 @import '../variables';
 
 .button {
+  $button: &;
+
   background-color: $primaryButtons;
   color: #fff;
   font-size: $bodyFontSize;
@@ -8,12 +10,27 @@
   display: inline-block;
   border: none;
   border-radius: 6px;
-  padding: 18px 42px;
+  padding: 18px 24px;
+  align-items: center;
+  height: 62px;
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &__sm {
     padding: 8px 24px;
+    height: 40px;
     font-size: 16px;
+  }
+
+  &#{$button}__alt {
+    background-color: $darkViolet;
+
+    &:hover {
+      background-color: lighten($darkViolet, 10);
+    }
   }
 
   &:focus:not(:focus-visible) {
@@ -36,6 +53,7 @@
     padding: 16px 42px;
     &__sm {
       padding: 10px 20px;
+      height: 45px;
     }
   }
 }
