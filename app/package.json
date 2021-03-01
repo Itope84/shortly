@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "eslint src --ext .ts,.tsx",
     "cypress": "cypress open",
     "test": "cypress run"
   },
@@ -24,6 +25,16 @@
     "@typescript-eslint/parser": "^4.15.2",
     "cypress": "^6.5.0",
     "eslint": "^7.20.0",
+    "husky": "^5.1.2",
+    "lint-staged": "^10.5.4",
     "typescript": "^4.2.2"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "npm run lint:fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
