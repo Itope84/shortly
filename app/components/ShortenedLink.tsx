@@ -63,6 +63,10 @@ export class ShortenedUrl implements Link {
 const ShortenedLink: React.FC<{ link: Link }> = ({ link }) => {
   const [copied, setCopied] = useState(false)
 
+  // didn't want to add the css-transition-group library just for this
+
+  const [transitioning, setTransitioning] = useState(false)
+
   const handleCopy = async (): Promise<void> => {
     let successful: boolean
     if (!navigator.clipboard) {
@@ -75,6 +79,16 @@ const ShortenedLink: React.FC<{ link: Link }> = ({ link }) => {
   }
 
   useEffect(() => {
+    setTransitioning(true)
+    setTimeout(() => {
+      setTransitioning(false)
+    }, 10)
+    return (): void => {
+      // maybe if there was a delete we would set a reverse transitioning?
+    }
+  }, [])
+
+  useEffect(() => {
     // reset "copied" after 3000ms
     const timeout = setTimeout(() => {
       setCopied(false)
@@ -85,7 +99,7 @@ const ShortenedLink: React.FC<{ link: Link }> = ({ link }) => {
   }, [copied])
 
   return (
-    <div className={styles['link-card']}>
+    <div className={[styles['link-card'], transitioning ? styles['entry-active'] : ''].join(' ')}>
       <p className={styles.url}>{link.url}</p>
       <a href={link.shortenedUrl} className={styles['shortened-url']}>
         {link.shortenedUrl}

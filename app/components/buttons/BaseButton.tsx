@@ -1,5 +1,6 @@
 import React from 'react'
 import buttonStyles from '../../styles/components/Button.module.scss'
+import Loading from '../../assets/svgs/loading.svg'
 
 interface ButtonProps {
   className?: string
@@ -33,7 +34,7 @@ const BaseButton: React.FC<ButtonProps> = ({
       ].join(' ')}
       disabled={loading}
     >
-      {loading ? 'Loading' : children}
+      {loading ? <Loading /> : children}
     </button>
   )
 }
