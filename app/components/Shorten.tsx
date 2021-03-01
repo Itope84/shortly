@@ -44,7 +44,7 @@ const Shorten: React.FC<{ addLink: (link: Link) => void }> = ({ addLink }) => {
 
   return (
     <div className={styles['shorten-container']}>
-      <form action="#" method="POST" onSubmit={handleSubmit}>
+      <form action="#" method="POST" onSubmit={handleSubmit} id="shortenForm">
         <TextInput
           value={link}
           onChange={updateLink}

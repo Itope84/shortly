@@ -6,7 +6,8 @@
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "error",
