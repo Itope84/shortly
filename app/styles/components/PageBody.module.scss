@@ -34,7 +34,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: stretch;
-    gap: $gap;
+
+    & > *:not(:nth-child(1)) {
+      @include desktop {
+        margin-left: #{$gap};
+      }
+
+      @include mobile {
+        margin-top: #{$gap};
+      }
+    }
+
     margin: 120px 0;
 
     .feature {
