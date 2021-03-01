@@ -1,19 +1,39 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import styles from '../styles/components/Shorten.module.scss'
+import shorten from '../utils/api'
 import BaseButton from './buttons/BaseButton'
 import TextInput from './TextInput'
+import { Link } from './ShortenedLink'
 
-const Shorten: React.FC = () => {
-  const [link, setLink] = React.useState('')
+const Shorten: React.FC<{ addLink: (link: Link) => void }> = ({ addLink }) => {
+  const [link, setLink] = useState('')
   const [linkError, setLinkError] = React.useState<null | string>('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     //   validate link
     if (!link) {
       setLinkError('Please add a link')
     } else {
       setLinkError(null)
+
+      // API request
+      setLoading(true)
+      const result = await shorten(link)
+
+      if (result.error) {
+        setLinkError(result.error)
+      }
+
+      if (result.shortenedUrl) {
+        addLink({
+          url: link,
+          shortenedUrl: result.shortenedUrl,
+        })
+        setLink('')
+      }
+      setLoading(false)
     }
   }
 
@@ -36,7 +56,7 @@ const Shorten: React.FC = () => {
           className={styles.input}
         ></TextInput>
         <div className={styles['button-wrapper']}>
-          <BaseButton type="submit" className={styles.button}>
+          <BaseButton type="submit" className={styles.button} loading={loading}>
             Shorten It!
           </BaseButton>
         </div>

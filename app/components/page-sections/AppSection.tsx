@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Shorten from '../Shorten'
-import ShortenedLink from '../ShortenedLink'
+import ShortenedLink, { Link } from '../ShortenedLink'
 
 import styles from '../../styles/components/AppSection.module.scss'
 
 const AppSection: React.FC = () => {
+  const [links, setLinks] = useState<Link[]>([])
+
+  const addShortenedLink = (link: Link): void => {
+    setLinks([...links, link])
+  }
+
   return (
     <section className={styles['app-section']}>
-      <Shorten></Shorten>
+      <Shorten addLink={addShortenedLink}></Shorten>
       {/* past shortened links */}
       <div className={styles.links}>
-        <ShortenedLink link={{ url: 'https://google.com', shortenedUrl: 'str' }}></ShortenedLink>
-        <ShortenedLink link={{ url: 'https://google.com', shortenedUrl: 'str' }}></ShortenedLink>
-        <ShortenedLink link={{ url: 'https://google.com', shortenedUrl: 'str' }}></ShortenedLink>
+        {links.map((link) => (
+          <ShortenedLink link={link}></ShortenedLink>
+        ))}
       </div>
     </section>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/components/ShortenedLink.module.scss'
 import BaseButton from './buttons/BaseButton'
 
-interface Link {
+export interface Link {
   url: string
   shortenedUrl: string
 }
