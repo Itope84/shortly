@@ -1,4 +1,4 @@
-context('Shortened links', () => {
+context('Localstorage', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/#')
     })
