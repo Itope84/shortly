@@ -1,6 +1,8 @@
 @import '../variables';
 
 .button {
+  $button: &;
+
   background-color: $primaryButtons;
   color: #fff;
   font-size: $bodyFontSize;
@@ -14,6 +16,14 @@
   &__sm {
     padding: 8px 24px;
     font-size: 16px;
+  }
+
+  &#{$button}__alt {
+    background-color: $darkViolet;
+
+    &:hover {
+      background-color: lighten($darkViolet, 10);
+    }
   }
 
   &:focus:not(:focus-visible) {

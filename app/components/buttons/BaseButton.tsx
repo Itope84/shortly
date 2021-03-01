@@ -5,21 +5,32 @@ interface ButtonProps {
   className?: string
   type?: 'button' | 'reset' | 'submit'
   sm?: boolean
-  children?: React.ReactNode
+  alt?: boolean
   loading?: boolean
+  children?: React.ReactNode
+
+  onClick?: () => void
 }
 
 const BaseButton: React.FC<ButtonProps> = ({
   className = '',
   sm = false,
+  alt = false,
   type = 'button',
   loading = false,
   children,
+  onClick,
 }) => {
   return (
     <button
       type={type}
-      className={[buttonStyles.button, sm ? buttonStyles['button__sm'] : '', className].join(' ')}
+      onClick={onClick}
+      className={[
+        buttonStyles.button,
+        sm ? buttonStyles['button__sm'] : '',
+        alt ? buttonStyles['button__alt'] : '',
+        className,
+      ].join(' ')}
       disabled={loading}
     >
       {loading ? 'Loading' : children}
