@@ -3,7 +3,7 @@ import styles from '../styles/components/Shorten.module.scss'
 import shorten from '../utils/api'
 import BaseButton from './buttons/BaseButton'
 import TextInput from './TextInput'
-import { Link } from './ShortenedLink'
+import { Link, ShortenedUrl } from './ShortenedLink'
 
 const Shorten: React.FC<{ addLink: (link: Link) => void }> = ({ addLink }) => {
   const [link, setLink] = useState('')
@@ -27,10 +27,7 @@ const Shorten: React.FC<{ addLink: (link: Link) => void }> = ({ addLink }) => {
       }
 
       if (result.shortenedUrl) {
-        addLink({
-          url: link,
-          shortenedUrl: result.shortenedUrl,
-        })
+        addLink(new ShortenedUrl(link, result.shortenedUrl))
         setLink('')
       }
       setLoading(false)

@@ -7,6 +7,20 @@ export interface Link {
   shortenedUrl: string
 }
 
+export class ShortenedUrl implements Link {
+  url: string
+  shortenedUrl: string
+
+  constructor(url: string, shortenedUrl: string) {
+    this.url = url
+    this.shortenedUrl = shortenedUrl
+  }
+
+  static fromJsonList(jsonList: { url: string; shortenedUrl: string }[]): ShortenedUrl[] {
+    return jsonList.map((json) => new ShortenedUrl(json.url, json.shortenedUrl))
+  }
+}
+
 const ShortenedLink: React.FC<{ link: Link }> = ({ link }) => {
   return (
     <div className={styles['link-card']}>
